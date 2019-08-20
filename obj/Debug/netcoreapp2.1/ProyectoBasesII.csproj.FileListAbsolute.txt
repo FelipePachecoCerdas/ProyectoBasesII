@@ -1,0 +1,14 @@
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\bin\Debug\netcoreapp2.1\ProyectoBasesII.deps.json
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\bin\Debug\netcoreapp2.1\ProyectoBasesII.runtimeconfig.json
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\bin\Debug\netcoreapp2.1\ProyectoBasesII.runtimeconfig.dev.json
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\bin\Debug\netcoreapp2.1\ProyectoBasesII.dll
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\bin\Debug\netcoreapp2.1\ProyectoBasesII.pdb
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.csprojAssemblyReference.cache
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.csproj.CoreCompileInputs.cache
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.RazorAssemblyInfo.cache
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.RazorAssemblyInfo.cs
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.AssemblyInfo.cs
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.RazorTargetAssemblyInfo.cache
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.dll
+C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Debug\netcoreapp2.1\ProyectoBasesII.pdb
