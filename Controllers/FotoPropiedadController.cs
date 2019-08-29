@@ -1,9 +1,9 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Threading.Tasks;
@@ -168,6 +168,14 @@ namespace ProyectoBasesII.Controllers
             }
 
             return CreatedAtAction("GetFotoPropiedad", new { id = fotoPropiedad.NumeroPlanoPropiedad }, fotoPropiedad);
+        }
+
+        // POST: api/FotoPropiedad
+        [HttpPost("/archivo")]
+        public async Task<IActionResult> PostArchivo([FromBody] Byte[] archivo)
+        {
+            System.IO.File.WriteAllBytes("Foo.jpg", archivo);
+            return NoContent();
         }
 
         // DELETE: api/FotoPropiedad/5

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +28,7 @@ namespace ProyectoBasesII.Controllers
             return _context.Pais;
         }
 
-        // GET: api/Propiedad/masPaises/5
+        // GET: api/Pais/masPaises/5
         [HttpGet("masPaises/{id}")]
         public async Task<IActionResult> GetMasPaises([FromRoute] decimal id)
         {
@@ -36,9 +37,26 @@ namespace ProyectoBasesII.Controllers
                 return BadRequest(ModelState);
             }
 
-            var resultado = _context.Pais.FromSql("SELECT TOP(3) * FROM pais WHERE idPais > " + id).ToList();
+            var resultado = _context.Pais.FromSql("SELECT * FROM pais ORDER BY idPais OFFSET " + id + " ROWS FETCH NEXT 5 ROWS ONLY").ToList();
 
             return Ok(resultado);
+        }
+
+        // GET: api/Pais/cantidad
+        [HttpGet("cantidad")]
+        public async Task<IActionResult> GetCantidad()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            RawSqlString cmd = "SELECT @cantidad = SUM(rows) FROM SYS.partitions WHERE index_id IN(0,1) AND object_id = OBJECT_ID('Pais')";
+            SqlParameter cantidad = new SqlParameter("@cantidad", System.Data.SqlDbType.Int);
+            cantidad.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.ExecuteSqlCommand(cmd, cantidad);
+
+            return Ok(cantidad.Value);
         }
 
         // GET: api/Pais/5
@@ -104,6 +122,13 @@ namespace ProyectoBasesII.Controllers
                 return BadRequest(ModelState);
             }
 
+            RawSqlString cmd = "SELECT @maximo = MAX(idPais) FROM pais";
+            SqlParameter maximo = new SqlParameter("@maximo", System.Data.SqlDbType.Int);
+            maximo.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.ExecuteSqlCommand(cmd, maximo);
+
+            pais.IdPais = (decimal) (int) maximo.Value;
+            pais.IdPais++;
             _context.Pais.Add(pais);
             try
             {

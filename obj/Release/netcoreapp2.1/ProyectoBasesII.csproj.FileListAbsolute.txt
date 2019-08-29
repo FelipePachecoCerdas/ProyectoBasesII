@@ -22,3 +22,28 @@ C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Release
 C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\propiedad-show\propiedad-show.component.css.g.cs
 C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\styles.css.g.cs
 C:\Users\felip\Documents\Visual Studio 2019\Projects\ProyectoBasesII\obj\Release\netcoreapp2.1\XamlC.stamp
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.deps.json
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.runtimeconfig.json
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.runtimeconfig.dev.json
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.dll
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.pdb
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.csprojAssemblyReference.cache
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\app.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\home\home.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\nav-menu\nav-menu.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\pais-edit\pais-edit.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\pais-propiedad\pais-propiedad.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\pais-show\pais-show.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\propiedad-edit\propiedad-edit.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\propiedad-show\propiedad-show.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\styles.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.csproj.CoreCompileInputs.cache
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.RazorAssemblyInfo.cache
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.RazorAssemblyInfo.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.AssemblyInfo.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\XamlC.stamp
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.RazorTargetAssemblyInfo.cache
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.dll
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.pdb
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\confirmation-dialog\confirmation-dialog.component.css.g.cs

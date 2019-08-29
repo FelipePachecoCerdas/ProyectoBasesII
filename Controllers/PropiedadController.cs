@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +28,8 @@ namespace ProyectoBasesII.Controllers
             return _context.Propiedad;
         }
 
+
+
         // GET: api/Propiedad/masPropiedades/5/5
         [HttpGet("masPropiedades/{idPais}/{idPropiedad}")]
         public async Task<IActionResult> GetMasPropiedades([FromRoute] decimal idPais, [FromRoute] decimal idPropiedad)
@@ -36,7 +39,7 @@ namespace ProyectoBasesII.Controllers
                 return BadRequest(ModelState);
             }
 
-            var resultado = _context.Propiedad.FromSql("SELECT TOP(5) * FROM propiedad WHERE numeroPlano > " + idPropiedad + " and codigoPais = " + idPais).ToList();
+            var resultado = _context.Propiedad.FromSql("SELECT * FROM propiedad WHERE codigoPais = " + idPais + " ORDER BY numeroPlano OFFSET " + idPropiedad + " ROWS FETCH NEXT 10 ROWS ONLY").ToList();
 
             return Ok(resultado);
         }
@@ -104,6 +107,13 @@ namespace ProyectoBasesII.Controllers
                 return BadRequest(ModelState);
             }
 
+            RawSqlString cmd = "SELECT @maximo = MAX(numeroPlano) FROM propiedad";
+            SqlParameter maximo = new SqlParameter("@maximo", System.Data.SqlDbType.Int);
+            maximo.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.ExecuteSqlCommand(cmd, maximo);
+
+            propiedad.NumeroPlano = (decimal)(int)maximo.Value;
+            propiedad.NumeroPlano++;
             _context.Propiedad.Add(propiedad);
             try
             {
@@ -123,6 +133,25 @@ namespace ProyectoBasesII.Controllers
 
             return CreatedAtAction("GetPropiedad", new { id = propiedad.NumeroPlano }, propiedad);
         }
+
+        // GET: api/Propiedad/cantidad
+        [HttpGet("cantidad")]
+        public async Task<IActionResult> GetCantidad()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            RawSqlString cmd = "SELECT @cantidad = SUM(rows) FROM SYS.partitions WHERE index_id IN(0,1) AND object_id = OBJECT_ID('Propiedad')";
+            SqlParameter cantidad = new SqlParameter("@cantidad", System.Data.SqlDbType.Int);
+            cantidad.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.ExecuteSqlCommand(cmd, cantidad);
+
+            return Ok(cantidad.Value);
+        }
+
+        
 
         // DELETE: api/Propiedad/5
         [HttpDelete("{id}")]

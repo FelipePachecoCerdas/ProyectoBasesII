@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\felip\\Documents\\Visual Studio 2019\\Projects\\ProyectoBasesII\\ProyectoBasesII.csproj": {}
+    "C:\\Users\\felip\\Documents\\Kraken\\ProyectoBasesII\\ProyectoBasesII.csproj": {}
   },
   "projects": {
-    "C:\\Users\\felip\\Documents\\Visual Studio 2019\\Projects\\ProyectoBasesII\\ProyectoBasesII.csproj": {
+    "C:\\Users\\felip\\Documents\\Kraken\\ProyectoBasesII\\ProyectoBasesII.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\felip\\Documents\\Visual Studio 2019\\Projects\\ProyectoBasesII\\ProyectoBasesII.csproj",
+        "projectUniqueName": "C:\\Users\\felip\\Documents\\Kraken\\ProyectoBasesII\\ProyectoBasesII.csproj",
         "projectName": "ProyectoBasesII",
-        "projectPath": "C:\\Users\\felip\\Documents\\Visual Studio 2019\\Projects\\ProyectoBasesII\\ProyectoBasesII.csproj",
+        "projectPath": "C:\\Users\\felip\\Documents\\Kraken\\ProyectoBasesII\\ProyectoBasesII.csproj",
         "packagesPath": "C:\\Users\\felip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\felip\\Documents\\Visual Studio 2019\\Projects\\ProyectoBasesII\\obj\\",
+        "outputPath": "C:\\Users\\felip\\Documents\\Kraken\\ProyectoBasesII\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
