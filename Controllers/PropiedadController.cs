@@ -38,7 +38,7 @@ namespace ProyectoBasesII.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            _context.Database.SetCommandTimeout(0);
             var resultado = _context.Propiedad.FromSql("SELECT * FROM propiedad WHERE codigoPais = " + idPais + " ORDER BY numeroPlano OFFSET " + idPropiedad + " ROWS FETCH NEXT 10 ROWS ONLY").ToList();
 
             return Ok(resultado);
@@ -76,6 +76,7 @@ namespace ProyectoBasesII.Controllers
             SqlConnection conn = new SqlConnection("Data Source=192.168.1.10\\SQLMASTER;Initial Catalog=Propiedades;Persist Security Info=True;User ID=propiedades;Password=propiedades");
             conn.Open();
             SqlCommand cmd = new SqlCommand("SELECT CASE WHEN codigoPais IS NULL THEN -1 ELSE codigoPais END, CASE WHEN annoRegistro IS NULL THEN -1 ELSE annoRegistro END, count(*) FROM Propiedad GROUP BY  GROUPING SETS((codigoPais, annoRegistro), (), (codigoPais), (annoRegistro))", conn);
+            cmd.CommandTimeout = 0;
             SqlDataReader dr = cmd.ExecuteReader();
             List<Totales> lista = new List<Totales>();
 
@@ -137,9 +138,10 @@ namespace ProyectoBasesII.Controllers
                 return BadRequest(ModelState);
             }
 
-            RawSqlString cmd = "SELECT @maximo = MAX(numeroPlano) FROM propiedad";
+            RawSqlString cmd = "SELECT @maximo = CASE WHEN MAX(numeroPlano) IS NULL THEN -1 ELSE MAX(numeroPlano) FROM propiedad";
             SqlParameter maximo = new SqlParameter("@maximo", System.Data.SqlDbType.Int);
             maximo.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.SetCommandTimeout(0);
             _context.Database.ExecuteSqlCommand(cmd, maximo);
 
             propiedad.NumeroPlano = (decimal)(int)maximo.Value;
@@ -177,6 +179,7 @@ namespace ProyectoBasesII.Controllers
             RawSqlString cmd = "SELECT @cantidad = count(*) FROM Propiedad WHERE codigoPais = " + idPais;
             SqlParameter cantidad = new SqlParameter("@cantidad", System.Data.SqlDbType.Int);
             cantidad.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.SetCommandTimeout(0);
             _context.Database.ExecuteSqlCommand(cmd, cantidad);
 
             return Ok(cantidad.Value);

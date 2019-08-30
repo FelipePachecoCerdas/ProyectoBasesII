@@ -36,7 +36,6 @@ namespace ProyectoBasesII.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var resultado = _context.Pais.FromSql("SELECT * FROM pais ORDER BY idPais OFFSET " + id + " ROWS FETCH NEXT 5 ROWS ONLY").ToList();
 
             return Ok(resultado);
@@ -52,8 +51,10 @@ namespace ProyectoBasesII.Controllers
             }
 
             RawSqlString cmd = "SELECT @cantidad = SUM(rows) FROM SYS.partitions WHERE index_id IN(0,1) AND object_id = OBJECT_ID('Pais')";
+            
             SqlParameter cantidad = new SqlParameter("@cantidad", System.Data.SqlDbType.Int);
             cantidad.Direction = System.Data.ParameterDirection.Output;
+            _context.Database.SetCommandTimeout(0);
             _context.Database.ExecuteSqlCommand(cmd, cantidad);
 
             return Ok(cantidad.Value);
@@ -71,6 +72,7 @@ namespace ProyectoBasesII.Controllers
             SqlConnection conn = new SqlConnection("Data Source=192.168.1.10\\SQLMASTER;Initial Catalog=Propiedades;Persist Security Info=True;User ID=propiedades;Password=propiedades");
             conn.Open();
             SqlCommand cmd = new SqlCommand("SELECT pa.idPais, pa.nbrPais, pr.tipoPropiedad, count(*) FROM Pais pa INNER JOIN Propiedad pr ON(pa.idPais = pr.codigoPais) WHERE pa.idPais = " + idPais + " GROUP BY pa.idPais, pa.nbrPais, pr.tipoPropiedad", conn);
+            cmd.CommandTimeout = 0;
             SqlDataReader dr = cmd.ExecuteReader();
             List<PropiedadTipo> lista = new List<PropiedadTipo>();
 
