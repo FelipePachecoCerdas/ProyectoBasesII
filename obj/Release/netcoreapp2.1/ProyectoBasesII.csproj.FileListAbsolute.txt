@@ -29,7 +29,6 @@ C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\Proyec
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\bin\Release\netcoreapp2.1\ProyectoBasesII.pdb
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.csprojAssemblyReference.cache
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\app.component.css.g.cs
-C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\home\home.component.css.g.cs
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\nav-menu\nav-menu.component.css.g.cs
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\pais-edit\pais-edit.component.css.g.cs
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\pais-propiedad\pais-propiedad.component.css.g.cs
@@ -47,3 +46,5 @@ C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\Proyec
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.dll
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ProyectoBasesII.pdb
 C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\confirmation-dialog\confirmation-dialog.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\propiedad-tipo\propiedad-tipo.component.css.g.cs
+C:\Users\felip\Documents\Kraken\ProyectoBasesII\obj\Release\netcoreapp2.1\ClienteApp\src\app\totales-anno-pais\totales-anno-pais.component.css.g.cs

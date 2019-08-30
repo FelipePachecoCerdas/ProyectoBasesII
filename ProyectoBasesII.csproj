@@ -5,8 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ClienteApp\src\app\home\**" />
+    <Content Remove="ClienteApp\src\app\home\**" />
+    <EmbeddedResource Remove="ClienteApp\src\app\home\**" />
+    <None Remove="ClienteApp\src\app\home\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClienteApp\src\app\api.service.spec.ts" />
     <None Remove="ClienteApp\src\app\api.service.ts" />
+    <None Remove="ClienteApp\src\app\propiedad-tipo\propiedad-tipo.model.ts" />
+    <None Remove="ClienteApp\src\app\propiedad-tipo\PropiedadTipo.ts" />
+    <None Remove="ClienteApp\src\app\totales-anno-pais\totales-anno-pais.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +37,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClienteApp\src\app\propiedad-tipo\propiedad-tipo.model.ts" />
+    <TypeScriptCompile Include="ClienteApp\src\app\totales-anno-pais\totales-anno-pais.model.ts" />
   </ItemGroup>
 
 </Project>

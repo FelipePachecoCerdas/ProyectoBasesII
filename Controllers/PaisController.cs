@@ -58,6 +58,35 @@ namespace ProyectoBasesII.Controllers
 
             return Ok(cantidad.Value);
         }
+        
+        // GET: api/Pais/propiedadesTipo/5
+        [HttpGet("propiedadesTipo/{idPais}")]
+        public async Task<IActionResult> GetPropiedadesPorTipo([FromRoute] decimal idPais)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            SqlConnection conn = new SqlConnection("Data Source=192.168.1.10\\SQLMASTER;Initial Catalog=Propiedades;Persist Security Info=True;User ID=propiedades;Password=propiedades");
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT pa.idPais, pa.nbrPais, pr.tipoPropiedad, count(*) FROM Pais pa INNER JOIN Propiedad pr ON(pa.idPais = pr.codigoPais) WHERE pa.idPais = " + idPais + " GROUP BY pa.idPais, pa.nbrPais, pr.tipoPropiedad", conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<PropiedadTipo> lista = new List<PropiedadTipo>();
+
+            while(dr.Read()) {
+                
+                PropiedadTipo p = new PropiedadTipo();
+                p.IdPais =  dr.GetDecimal(0);;
+                p.NbrPais = dr.GetString(1);
+                p.TipoPropiedad =  dr.GetString(2);
+                p.Cantidad = (decimal) dr.GetInt32(3);
+                lista.Add(p);
+            }
+
+            conn.Close();
+            return Ok(lista);
+        }
 
         // GET: api/Pais/5
         [HttpGet("{id}")]
@@ -97,6 +126,7 @@ namespace ProyectoBasesII.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+            
             }
             catch (DbUpdateConcurrencyException)
             {

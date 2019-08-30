@@ -63,6 +63,36 @@ namespace ProyectoBasesII.Controllers
             return Ok(propiedad);
         }
 
+
+        // GET: api/Pais/totales
+        [HttpGet("totales")]
+        public async Task<IActionResult> GetTotales()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            SqlConnection conn = new SqlConnection("Data Source=192.168.1.10\\SQLMASTER;Initial Catalog=Propiedades;Persist Security Info=True;User ID=propiedades;Password=propiedades");
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT CASE WHEN codigoPais IS NULL THEN -1 ELSE codigoPais END, CASE WHEN annoRegistro IS NULL THEN -1 ELSE annoRegistro END, count(*) FROM Propiedad GROUP BY  GROUPING SETS((codigoPais, annoRegistro), (), (codigoPais), (annoRegistro))", conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            List<Totales> lista = new List<Totales>();
+
+            while (dr.Read())
+            {
+
+                Totales p = new Totales();
+                p.codigoPais = dr.GetDecimal(0);
+                p.annoRegistro = dr.GetDecimal(1);
+                p.cantidad = (decimal)dr.GetInt32(2);
+                lista.Add(p);
+            }
+
+            conn.Close();
+            return Ok(lista);
+        }
+
         // PUT: api/Propiedad/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPropiedad([FromRoute] decimal id, [FromBody] Propiedad propiedad)
@@ -135,15 +165,16 @@ namespace ProyectoBasesII.Controllers
         }
 
         // GET: api/Propiedad/cantidad
-        [HttpGet("cantidad")]
-        public async Task<IActionResult> GetCantidad()
+        [HttpGet("cantidad/{idPais}")]
+        public async Task<IActionResult> GetCantidad([FromRoute] decimal idPais)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            RawSqlString cmd = "SELECT @cantidad = SUM(rows) FROM SYS.partitions WHERE index_id IN(0,1) AND object_id = OBJECT_ID('Propiedad')";
+            //RawSqlString cmd = "SELECT @cantidad = SUM(rows) FROM SYS.partitions WHERE index_id IN(0,1) AND object_id = OBJECT_ID('Propiedad')";
+            RawSqlString cmd = "SELECT @cantidad = count(*) FROM Propiedad WHERE codigoPais = " + idPais;
             SqlParameter cantidad = new SqlParameter("@cantidad", System.Data.SqlDbType.Int);
             cantidad.Direction = System.Data.ParameterDirection.Output;
             _context.Database.ExecuteSqlCommand(cmd, cantidad);
